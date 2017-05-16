@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="300.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.view.Controller">
+   <children>
+      <TextField fx:id="name" layoutX="6.0" layoutY="2.0" prefHeight="25.0" prefWidth="569.0" />
+      <Text fx:id="label" layoutX="6.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="569.0" />
+      <TextField fx:id="tel" layoutX="6.0" layoutY="31.0" prefHeight="25.0" prefWidth="516.0" />
+      <Button layoutX="523.0" layoutY="31.0" mnemonicParsing="false" onAction="#test" text="Button" textFill="#f50000">
+         <font>
+            <Font name="Georgia" size="15.0" />
+         </font></Button>
+   </children>
+</AnchorPane>
