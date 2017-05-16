@@ -3,12 +3,9 @@ package ch.makery.address.view;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import application.MySQLSSHConnector;
+import ch.makery.address.DAO.UtilisateurDAO;
 import javafx.application.Application;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -45,9 +42,14 @@ public class Controller extends Application {
 	}
 	
 	public void test() throws SQLException, IOException{
-		TextField name = this.getName();
-		Text label = this.getLabel();
-		MySQLSSHConnector connect = new MySQLSSHConnector();
+		UtilisateurDAO dao = new UtilisateurDAO();
+		if(dao.login(this.name.getText(), this.tel.getText())){
+			this.label.setText("Succes");
+		}
+		else{
+			this.label.setText("Faillure");
+		}
+		
 		
 		
 	}

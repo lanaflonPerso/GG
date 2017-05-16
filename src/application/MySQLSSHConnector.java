@@ -9,7 +9,7 @@ import com.jcraft.jsch.Session;
 
 public class MySQLSSHConnector {
 
-public Connection findUser() throws SQLException {
+public Connection connection_db() throws SQLException {
 		
 		Connection connection = null;
         Session session= null;
@@ -19,8 +19,6 @@ public Connection findUser() throws SQLException {
 		String servPwd = "1ALJ826HtE";
 		int port = 22;
 		
-		String rhost = "localhost";
-		int rport = 3306;
 		int lport = 3306;
 
 		String driverName = "com.mysql.cj.jdbc.Driver";
@@ -40,8 +38,6 @@ public Connection findUser() throws SQLException {
 			session.setConfig(config);
 			// Connect to remote server
 			session.connect();
-			// Apply the port forwarding
-			session.setPortForwardingL(lport, rhost, rport);
 			// Connect to remote database
 			Class.forName(driverName);
 			connection = DriverManager.getConnection(db2Url, dbUsr, dbPwd);
