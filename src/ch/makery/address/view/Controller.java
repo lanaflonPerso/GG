@@ -44,7 +44,7 @@ public class Controller extends Application {
 	public void test() throws SQLException, IOException{
 		UtilisateurDAO dao = new UtilisateurDAO();
 		if(dao.login(this.name.getText(), this.tel.getText())){
-			this.label.setText("Succes");
+			this.label.setText("Success");
 		}
 		else{
 			this.label.setText("Faillure");
