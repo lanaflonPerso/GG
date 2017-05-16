@@ -21,9 +21,10 @@ public class UtilisateurDAO {
 			ResultSet rs = pr.executeQuery();
 			
 			if (rs.next()){
+				connection.close();
 				return true;
 			}
-			connection.close();
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
