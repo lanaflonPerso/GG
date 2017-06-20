@@ -12,6 +12,37 @@ import java.sql.SQLException;
  * @author maxim
  */
 public class ClientDAO {
+    public boolean insertClient(Client client){
+        MySQLSSHConnector db = new MySQLSSHConnector();
+            try {
+                Connection connection = db.connection_db();
+		PreparedStatement pr = null;
+		pr = (PreparedStatement) connection.prepareStatement("INSERT INTO Client(nom_client, prenom_client, num_tel_client, email_client) VALUES (" +
+                        client.getNom_client() + ", " + 
+                        client.getPrenom_client() + ", " +
+                        client.getNum_tel_client() + ", " +
+                        client.getEmail_client() + ")");
+                if(pr.executeUpdate() != 0){
+                    //Success
+                    System.out.println("Insert Client Success");
+                }else {
+                    // Failed
+                    System.out.println("Insert Client Failed");
+                }
+                
+                connection.close();
+				
+                    db.CloseSSHConnection();
+                    return true;
+                    
+            } catch (SQLException e) {
+		// TODO Auto-generated catch block
+                db.CloseSSHConnection();
+		e.printStackTrace();
+                return false;
+            }
+    }
+    
     public Client getClientById(int id){
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
