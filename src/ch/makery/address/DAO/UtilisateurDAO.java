@@ -15,9 +15,9 @@ public class UtilisateurDAO {
 		try {
 			Connection connection = db.connection_db();
 			PreparedStatement pr = null;
-			pr = (PreparedStatement) connection.prepareStatement("Select * from Utilisateur "/*where"
-					+ " nom_utilisateur = '" +name
-					+ "' AND mot_de_passe = '"+mdp+"'"*/);
+			pr = (PreparedStatement) connection.prepareStatement("Select * from Utilisateur where" + 
+                            " nom_utilisateur = '" + name + 
+                            "' AND mot_de_passe = '" + mdp + "'");
 			ResultSet rs = pr.executeQuery();
 			
 			
@@ -31,10 +31,11 @@ public class UtilisateurDAO {
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
+                        db.CloseSSHConnection();
 			e.printStackTrace();
 		}
 		
-		
+		db.CloseSSHConnection();
 		return false;
 	}
 }
