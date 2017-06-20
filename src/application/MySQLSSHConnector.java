@@ -6,13 +6,15 @@ import java.sql.SQLException;
 
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 public class MySQLSSHConnector {
+	public  Session session;
 
 public Connection connection_db() throws SQLException {
 		
 		Connection connection = null;
-        Session session= null;
+        this.session= null;
         
 		String host = "192.168.0.111";
 		String servUser = "g4";
@@ -22,7 +24,7 @@ public Connection connection_db() throws SQLException {
 		int lport = 3306;
 
 		String driverName = "com.mysql.cj.jdbc.Driver";
-		String db2Url = "jdbc:mysql://localhost:"+lport+"/Hotel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+		String db2Url = "jdbc:mysql://localhost:"+lport+"/hotel?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 
 		String dbUsr = "root";
 		String dbPwd = "root";
@@ -38,9 +40,22 @@ public Connection connection_db() throws SQLException {
 			session.setConfig(config);
 			// Connect to remote server
 			session.connect();
+			int assinged_port = session.setPortForwardingL(8745, "127.0.0.1", 3306);
+			System.out.println("localhost:" + assinged_port + " -> " + "127.0.0.1" + ":" + 3306);
 			// Connect to remote database
-			Class.forName(driverName);
-			connection = DriverManager.getConnection(db2Url, dbUsr, dbPwd);
+			//Class.forName(driverName);
+			//connection = DriverManager.getConnection(db2Url, dbUsr, null);
+			MysqlDataSource dataSource = new MysqlDataSource();
+            dataSource.setServerName("127.0.0.1");
+            dataSource.setPortNumber(8745);
+            dataSource.setUser("root");
+            dataSource.setAllowMultiQueries(true);
+
+            dataSource.setPassword("root");
+            dataSource.setDatabaseName("Hotel");
+
+            connection = dataSource.getConnection();
+           
 			
 			return connection;
 		} catch (Exception e) {
@@ -48,5 +63,12 @@ public Connection connection_db() throws SQLException {
 		}
 		 return null;
 	}
+
+public void CloseSSHConnection() {
+    if (session != null && session.isConnected()) {
+        System.out.println("Closing SSH Connection");
+        session.disconnect();
+    }
+}
 
 }
