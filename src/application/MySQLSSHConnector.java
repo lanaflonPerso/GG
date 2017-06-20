@@ -12,15 +12,15 @@ public class MySQLSSHConnector {
 	public  Session session;
 
 public Connection connection_db() throws SQLException {
-		
+
 		Connection connection = null;
         this.session= null;
-        
-		String host = "192.168.0.111";
+
+		String host = "109.24.204.203";
 		String servUser = "g4";
 		String servPwd = "1ALJ826HtE";
-		int port = 22;
-		
+		int port = 22111;
+
 		int lport = 3306;
 
 		String driverName = "com.mysql.cj.jdbc.Driver";
@@ -28,7 +28,7 @@ public Connection connection_db() throws SQLException {
 
 		String dbUsr = "root";
 		String dbPwd = "root";
-		
+
 		try {
 			JSch jsch = new JSch();
 			// Get SSH session
@@ -55,8 +55,8 @@ public Connection connection_db() throws SQLException {
             dataSource.setDatabaseName("Hotel");
 
             connection = dataSource.getConnection();
-           
-			
+
+
 			return connection;
 		} catch (Exception e) {
 			e.printStackTrace();
