@@ -7,9 +7,10 @@ import java.sql.SQLException;
 import com.mysql.jdbc.PreparedStatement;
 
 import application.*;
+import ch.makery.address.model.Utilisateur;
 
 public class UtilisateurDAO {
-	public boolean login(String name, String mdp){
+	public Utilisateur login(String name, String mdp){
 		
 		MySQLSSHConnector db = new MySQLSSHConnector();
 		try {
@@ -22,11 +23,11 @@ public class UtilisateurDAO {
 			
 			
 			if (rs.next()){
-				System.out.println(rs.getString(2));
+				Utilisateur user = new Utilisateur(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4));
 				connection.close();
 				
 				db.CloseSSHConnection();
-				return true;
+				return user;
 			}
 			
 		} catch (SQLException e) {
@@ -36,6 +37,6 @@ public class UtilisateurDAO {
 		}
 		
 		db.CloseSSHConnection();
-		return false;
+		return null;
 	}
 }

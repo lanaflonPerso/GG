@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 import ch.makery.address.DAO.UtilisateurDAO;
+import ch.makery.address.model.Utilisateur;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -43,7 +44,8 @@ public class Controller extends Application {
 	
 	public void test() throws SQLException, IOException{
 		UtilisateurDAO dao = new UtilisateurDAO();
-		if(dao.login(this.name.getText(), this.tel.getText())){
+		Utilisateur user = dao.login(this.name.getText(), this.tel.getText());
+		if(user != null){
 			this.label.setText("Success");
 		}
 		else{
