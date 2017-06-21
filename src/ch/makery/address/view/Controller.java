@@ -3,6 +3,8 @@ package ch.makery.address.view;
 import java.io.IOException;
 import java.sql.SQLException;
 
+import application.Main;
+import application.ViewController;
 import ch.makery.address.DAO.UtilisateurDAO;
 import ch.makery.address.model.Utilisateur;
 import javafx.application.Application;
@@ -46,6 +48,11 @@ public class Controller extends Application {
 		UtilisateurDAO dao = new UtilisateurDAO();
 		Utilisateur user = dao.login(this.name.getText(), this.tel.getText());
 		if(user != null){
+			System.out.println(user.getId_role());
+			if(user.getId_role() == 1){
+				Main vc = new Main();
+				vc.setScene("Accueil.fxml");
+			}
 			this.label.setText("Success");
 		}
 		else{
