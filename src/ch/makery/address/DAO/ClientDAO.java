@@ -6,6 +6,7 @@ import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  *
@@ -75,14 +76,14 @@ public class ClientDAO {
             db.CloseSSHConnection();
           return null;  
     }
-    public Client getClientByName(String nom){
+    public ArrayList<Client> getClientsByName(String nom){
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
                 Connection connection = db.connection_db();
 		PreparedStatement pr = null;
 		pr = (PreparedStatement) connection.prepareStatement("Select * from Client WHERE nom_client = '" + nom + "'");
 		ResultSet rs = pr.executeQuery();
-
+                ArrayList<Client> tabClient = new ArrayList<>();
 		if (rs.next()){
                     Client res = new Client();
                     res.setId_client(rs.getInt("id_client"));
@@ -93,10 +94,11 @@ public class ClientDAO {
                     
                     System.out.println(res.getNom_client());
                     connection.close();
-				
                     db.CloseSSHConnection();
-                    return res;
+                    
+                    tabClient.add(res);
 		}
+                return tabClient;
 			
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
