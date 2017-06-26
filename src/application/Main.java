@@ -1,5 +1,5 @@
 package application;
-	
+
 import java.io.IOException;
 
 import javafx.application.Application;
@@ -16,7 +16,7 @@ public class Main extends Application {
     public void first(){
         launch();
     }
-    
+
     @Override
     public void start(Stage primaryStage) throws Exception {
          stage = primaryStage;
@@ -33,7 +33,7 @@ public class Main extends Application {
      * argument
      *     lien = nomDuFichier.fxml dans package View
      *     del = est ce un retour à la fenetre precedente
-     * Changement de scene 
+     * Changement de scene
      */
     public void setScene(String lien){
         try {
