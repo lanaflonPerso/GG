@@ -11,16 +11,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.view.TauxJournalierRemplissageHotelController">
    <children>
       <Pane layoutY="36.0" prefHeight="436.0" prefWidth="200.0" style="-fx-border-color: black;">
          <children>
-            <Button layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Taux journalier de remplissage" />
-            <Button layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Moyenne du taux de fréquentation" />
-            <Button layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Nombre de petits déjeuners" />
-            <Button layoutY="131.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Panier moyen" />
-            <Button layoutY="168.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Dépenses par service" />
-            <Button layoutY="206.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Nombre d'employés par service" />
+            <Button fx:id="b1" layoutY="14.0" mnemonicParsing="false" onAction="#actionB1" prefHeight="25.0" prefWidth="200.0" text="Taux journalier de remplissage" />
+            <Button fx:id="b2" layoutY="55.0" mnemonicParsing="false" onAction="#actionB2" prefHeight="25.0" prefWidth="200.0" text="Moyenne du taux de fréquentation" />
+            <Button fx:id="b3" layoutY="93.0" mnemonicParsing="false" onAction="#actionB3" prefHeight="25.0" prefWidth="200.0" text="Nombre de petits déjeuners" />
+            <Button fx:id="b4" layoutY="131.0" mnemonicParsing="false" onAction="#actionB4" prefHeight="25.0" prefWidth="200.0" text="Panier moyen" />
+            <Button fx:id="b5" layoutY="168.0" mnemonicParsing="false" onAction="#actionB5" prefHeight="25.0" prefWidth="200.0" text="Dépenses par service" />
+            <Button fx:id="b6" layoutY="206.0" mnemonicParsing="false" onAction="#actionB6" prefHeight="25.0" prefWidth="200.0" text="Nombre d'employés par service" />
          </children>
       </Pane>
       <Label layoutX="389.0" layoutY="45.0" text="Taux journalier de remplissage de l'hôtel">
