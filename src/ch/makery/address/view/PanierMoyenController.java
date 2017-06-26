@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import application.Main;
+import ch.makery.address.DAO.CommanderDAO;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -69,7 +70,15 @@ public class PanierMoyenController extends Application implements Initializable{
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		System.out.println("test");
+		double moyenne;
+		CommanderDAO montant = new CommanderDAO();
+		try{
+		moyenne = montant.getMoyenneCommande();
+		}
+		catch(Exception e){
+			moyenne = 0;
+		}
+		montantPanier.setText(moyenne+"");
 	}
 
 	@Override
