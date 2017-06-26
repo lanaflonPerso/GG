@@ -21,7 +21,7 @@ public class MenuDAO {
 		pr = (PreparedStatement) connection.prepareStatement("Select * from Menu WHERE id_menu = "+ id);
 		ResultSet rs = pr.executeQuery();
 
-		while (rs.next()){
+		if (rs.next()){
                     Menu res = new Menu();
                     res.setId_menu(rs.getInt("id_menu"));
                     res.setMontant(rs.getDouble("montant"));

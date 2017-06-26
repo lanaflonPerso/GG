@@ -20,7 +20,7 @@ public class PlatDAO {
 		pr = (PreparedStatement) connection.prepareStatement("Select * from Plat WHERE id_plat = "+ id);
 		ResultSet rs = pr.executeQuery();
 
-		while (rs.next()){
+		if (rs.next()){
                     Plat res = new Plat();
                     res.setId_plat(rs.getInt("id_plat"));
                     res.setMontant(rs.getDouble("montant"));
