@@ -38,7 +38,6 @@ public class PanierMoyenController extends Application implements Initializable{
 
 	public void actionB1(){
 		Main vc = new Main();
-		System.out.println("test b1");
 		vc.setScene("TauxJournalierRemplissageHotel.fxml");
 	}
 

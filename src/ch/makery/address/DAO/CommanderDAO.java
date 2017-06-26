@@ -43,6 +43,33 @@ public class CommanderDAO {
         db.CloseSSHConnection();
         return null;
     }
+    
+    public int getCommanderByMenuAndDate(String date){
+        MySQLSSHConnector db = new MySQLSSHConnector();
+            try {
+                Connection connection = db.connection_db();
+		PreparedStatement pr = null; 
+		pr = (PreparedStatement) connection.prepareStatement("Select count(*) from Commander WHERE id_menu = 1 and "
+				+ " date_commande = '" + date +"'");
+		System.out.println(pr.asSql());
+		ResultSet rs = pr.executeQuery();
+		
+		if (rs.next()){
+				int i = rs.getInt(1);
+                    connection.close();
+		    db.CloseSSHConnection();
+                    return i;
+		}
+
+            } catch (SQLException e) {
+		// TODO Auto-generated catch block
+                db.CloseSSHConnection();
+		e.printStackTrace();
+            }
+
+        db.CloseSSHConnection();
+        return 0;
+    }
     public ArrayList<Commander> getCommanderByClient(int idClient){
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
