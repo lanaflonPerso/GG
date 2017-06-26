@@ -44,6 +44,7 @@ public class ReserverDAO {
             db.CloseSSHConnection();
           return null;
     }
+    
     public Reserver getReserverByChambre(int id_chambre) {
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
@@ -51,7 +52,7 @@ public class ReserverDAO {
 		PreparedStatement pr = null;
 		pr = (PreparedStatement) connection.prepareStatement("Select * from Reserver WHERE id_chambre = "+ id_chambre);
 		ResultSet rs = pr.executeQuery();
-
+		
 		if (rs.next()){
                     Reserver res = new Reserver();
                     res.setDate_debut(rs.getDate("date_debut"));
@@ -75,5 +76,32 @@ public class ReserverDAO {
             
             db.CloseSSHConnection();
           return null;
+    }
+    
+    public int getReserverByDate(String date) {
+        MySQLSSHConnector db = new MySQLSSHConnector();
+            try {
+                Connection connection = db.connection_db();
+		PreparedStatement pr = null;
+		pr = (PreparedStatement) connection.prepareStatement("Select count(*) as taux from Reserver WHERE date_debut <= '"+date+"'"
+				+ " and date_fin >= '"+date+"'");
+		ResultSet rs = pr.executeQuery();
+		if (rs.next()){
+                    
+			int i = rs.getInt(1);
+			System.out.println(i);
+                    connection.close();	
+                    db.CloseSSHConnection();
+                    return i;
+		}
+			
+            } catch (SQLException e) {
+		// TODO Auto-generated catch block
+                db.CloseSSHConnection();
+		e.printStackTrace();
+            }
+            
+            db.CloseSSHConnection();
+          return 0;
     }
 }

@@ -48,7 +48,6 @@ public class Controller extends Application {
 		UtilisateurDAO dao = new UtilisateurDAO();
 		Utilisateur user = dao.login(this.name.getText(), this.tel.getText());
 		if(user != null){
-			System.out.println(user.getId_role());
 			if(user.getId_role() == 1){
 				Main vc = new Main();
 				vc.setScene("Accueil.fxml");

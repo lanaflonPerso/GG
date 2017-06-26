@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -11,16 +17,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutY="36.0" prefHeight="436.0" prefWidth="200.0" style="-fx-border-color: black;">
          <children>
-            <Button layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Taux journalier de remplissage" />
-            <Button layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Moyenne du taux de fréquentation" />
-            <Button layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Nombre de petits déjeuners" />
-            <Button layoutY="131.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Panier moyen" />
-            <Button layoutY="168.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Dépenses par service" />
-            <Button layoutY="206.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Nombre d'employés par service" />
+            <Button fx:id="b1" layoutY="14.0" mnemonicParsing="false" onAction="#actionB1" prefHeight="25.0" prefWidth="200.0" text="Taux journalier de remplissage" />
+            <Button fx:id="b2" layoutY="55.0" mnemonicParsing="false" onAction="#actionB2" prefHeight="25.0" prefWidth="200.0" text="Moyenne du taux de fréquentation" />
+            <Button fx:id="b3" layoutY="93.0" mnemonicParsing="false" onAction="#actionB3" prefHeight="25.0" prefWidth="200.0" text="Nombre de petits déjeuners" />
+            <Button fx:id="b4" layoutY="131.0" mnemonicParsing="false" onAction="#actionB4" prefHeight="25.0" prefWidth="200.0" text="Panier moyen" />
+            <Button fx:id="b5" layoutY="168.0" mnemonicParsing="false" onAction="#actionB5" prefHeight="25.0" prefWidth="200.0" text="Dépenses par service" />
+            <Button fx:id="b6" layoutY="206.0" mnemonicParsing="false" onAction="#actionB6" prefHeight="25.0" prefWidth="200.0" text="Nombre d'employés par service" />
          </children>
       </Pane>
       <Label layoutX="389.0" layoutY="45.0" text="Taux journalier de remplissage de l'hôtel">
@@ -37,7 +43,7 @@
             </Label>
          </children>
       </Pane>
-      <LineChart layoutX="228.0" layoutY="85.0" prefHeight="358.0" prefWidth="615.0">
+      <LineChart fx:id="graph" layoutX="228.0" layoutY="85.0" prefHeight="358.0" prefWidth="615.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
         </xAxis>
@@ -45,11 +51,11 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </LineChart>
-      <DatePicker layoutX="218.0" layoutY="431.0" />
+      <DatePicker fx:id="date1" layoutX="218.0" layoutY="431.0" />
       <Label layoutX="400.0" layoutY="435.0" text="Date de début" />
-      <DatePicker layoutX="501.0" layoutY="431.0" />
+      <DatePicker fx:id="date2" layoutX="501.0" layoutY="431.0" />
       <Label layoutX="689.0" layoutY="435.0" text="Date de fin" />
-      <Button layoutX="779.0" layoutY="431.0" mnemonicParsing="false" text="Rechercher" />
+      <Button fx:id="validate" layoutX="779.0" layoutY="431.0" mnemonicParsing="false" onAction="#tauxJournalier" text="Rechercher" />
    </children>
    <opaqueInsets>
       <Insets />
