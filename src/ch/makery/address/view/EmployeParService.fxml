@@ -44,8 +44,6 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
-      <Label layoutX="381.0" layoutY="426.0" text="Cuisine" />
-      <Label layoutX="623.0" layoutY="426.0" text="Réception" />
    </children>
    <opaqueInsets>
       <Insets />

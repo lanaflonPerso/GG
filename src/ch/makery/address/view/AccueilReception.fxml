@@ -11,8 +11,8 @@
    <children>
       <Pane layoutY="36.0" prefHeight="436.0" prefWidth="200.0" style="-fx-border-color: black;">
          <children>
-            <Button layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Gestion client" />
-            <Button layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Planning de réservations" />
+            <Button fx:id="B1" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Gestion client" />
+            <Button fx:id="B2" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Planning de réservations" />
          </children>
       </Pane>
       <Pane prefHeight="36.0" prefWidth="869.0" style="-fx-border-color: black;">
