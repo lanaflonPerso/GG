@@ -18,15 +18,15 @@ public class ChambreDAO {
             try {
                 Connection connection = db.connection_db();
 		PreparedStatement pr = null;
-		pr = (PreparedStatement) connection.prepareStatement("Select * from Client WHERE id_client = "+ id);
+		pr = (PreparedStatement) connection.prepareStatement("Select * from Chambre WHERE id_chambre = "+ id);
 		ResultSet rs = pr.executeQuery();
 
 		if (rs.next()){
                     Chambre res = new Chambre();
-                    res.setId_chambre(rs.getInt("id_chambre"));
-                    res.setId_etage(rs.getInt("id_etage"));
-                    res.setNb_lits(rs.getInt("nb_lits"));
-                    res.setNumero_chambre(rs.getInt("numero_chambre"));
+                    res.setId_chambre(rs.getInt(1));
+                    res.setId_etage(rs.getInt(4));
+                    res.setNb_lits(rs.getInt(3));
+                    res.setNumero_chambre(rs.getInt(2));
                     
                     connection.close();
 		    db.CloseSSHConnection();

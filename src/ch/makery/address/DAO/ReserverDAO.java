@@ -4,6 +4,7 @@ import application.MySQLSSHConnector;
 import ch.makery.address.model.Reserver;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -43,6 +44,36 @@ public class ReserverDAO {
             
             db.CloseSSHConnection();
           return null;
+    }
+    
+    public void insertReserverByClient(int id_client, int id_chambre, String date1, String date2) {
+        MySQLSSHConnector db = new MySQLSSHConnector();
+            try {
+                Connection connection = db.connection_db();
+		PreparedStatement pr = null;
+		pr = (PreparedStatement) connection.prepareStatement("INSERT INTO `Hotel`.`Reserver` "+
+											"(`date_debut`, "+
+											"`date_fin`, "+
+											"`est_paye`, "+
+											"`id_client`, "+
+											"`id_chambre`) "+
+											"VALUES "+
+											"('"+date1+"', '"+
+											date2+"', "+
+											"0, "+
+											id_client+", "+
+											id_chambre+")");
+		System.out.println(pr.asSql());
+		pr.executeUpdate();
+		connection.close();
+        db.CloseSSHConnection();
+		return;
+            } catch (SQLException e) {
+		// TODO Auto-generated catch block
+                db.CloseSSHConnection();
+		e.printStackTrace();
+            }
+            
     }
     
     public Reserver getReserverByChambre(int id_chambre) {
