@@ -74,4 +74,30 @@ public class MangerDAO {
         db.CloseSSHConnection();
         return null;
     }
+    public boolean supprManger(int idTable, int idClient){
+        MySQLSSHConnector db = new MySQLSSHConnector();
+            try {
+                Connection connection = db.connection_db();
+		PreparedStatement pr = null;
+		pr = (PreparedStatement) connection.prepareStatement("DELETE TABLE FROM Manger WHERE id_client = " + idClient + " AND id_table = " + idTable);
+                
+                if(pr.executeUpdate() != 0){
+                    //Success
+                    System.out.println("Delete Manger Success");
+                }else {
+                    // Failed
+                    System.out.println("Delete Manger Failed");
+                }
+                
+                connection.close();	
+                db.CloseSSHConnection();
+                return true;
+                    
+            } catch (SQLException e) {
+		// TODO Auto-generated catch block
+                db.CloseSSHConnection();
+		e.printStackTrace();
+                return false;
+            }
+    }
 }

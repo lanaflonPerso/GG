@@ -41,6 +41,62 @@ public class Table_restaurantDAO {
         db.CloseSSHConnection();
         return null;
     }
+    public boolean updateTable(Table_restaurant table){
+        MySQLSSHConnector db = new MySQLSSHConnector();
+            try {
+                Connection connection = db.connection_db();
+		PreparedStatement pr = null;
+		pr = (PreparedStatement) connection.prepareStatement("UPDATE table_restaurant SET numero_table = " + table.getNumero_table() + ", nb_places = " + table.getNb_place() + " WHERE id_table = " + table.getId_table());
+                
+                if(pr.executeUpdate() != 0){
+                    //Success
+                    System.out.println("Update Table Success");
+                }else {
+                    // Failed
+                    System.out.println("Update Table Failed");
+                }
+                
+                connection.close();
+				
+                    db.CloseSSHConnection();
+                    return true;
+                    
+            } catch (SQLException e) {
+		// TODO Auto-generated catch block
+                db.CloseSSHConnection();
+		e.printStackTrace();
+                return false;
+            }
+           
+    }
+    public boolean supprTable(int id){
+        MySQLSSHConnector db = new MySQLSSHConnector();
+            try {
+                Connection connection = db.connection_db();
+		PreparedStatement pr = null;
+		pr = (PreparedStatement) connection.prepareStatement("DELETE TABLE FROM Table_restaurant WHERE id_table = " + id);
+                
+                if(pr.executeUpdate() != 0){
+                    //Success
+                    System.out.println("Delete Table Success");
+                }else {
+                    // Failed
+                    System.out.println("Delete Table Failed");
+                }
+                
+                connection.close();
+				
+                    db.CloseSSHConnection();
+                    return true;
+                    
+            } catch (SQLException e) {
+		// TODO Auto-generated catch block
+                db.CloseSSHConnection();
+		e.printStackTrace();
+                return false;
+            }
+           
+    }
     public ArrayList<Table_restaurant> getAll(){
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {

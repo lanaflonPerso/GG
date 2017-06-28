@@ -39,4 +39,30 @@ public class PrixDAO {
         db.CloseSSHConnection();
         return null;
     }
+    public boolean updateTva(double montant, double tva){
+        MySQLSSHConnector db = new MySQLSSHConnector();
+        try {
+            Connection connection = db.connection_db();
+            PreparedStatement pr = null;
+            pr = (PreparedStatement) connection.prepareStatement("UPDATE Prix SET tva = " + tva + " WHERE montant = " + montant);
+                
+            if(pr.executeUpdate() != 0){
+                //Success
+                System.out.println("Update Prix Success");
+            }else {
+                // Failed
+                System.out.println("Update Prix Failed");
+            }
+                
+            connection.close();	
+            db.CloseSSHConnection();
+            return true;
+                    
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            db.CloseSSHConnection();
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
