@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.LineChart?>
@@ -11,13 +17,13 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ch.makery.address.view.NotorieteController">
    <children>
       <Pane layoutY="36.0" prefHeight="436.0" prefWidth="200.0" style="-fx-border-color: black;">
          <children>
-            <Button layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Centrale de réservation" />
-            <Button layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Agences de voyages" />
-            <Button layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Notoriété" />
+            <Button fx:id="b1" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Centrale de réservation" />
+            <Button fx:id="b2" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Agences de voyages" />
+            <Button fx:id="b3" layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Notoriété" />
          </children>
       </Pane>
       <Label layoutX="443.0" layoutY="43.0" text="Notoriété de l'hôtel">
@@ -38,7 +44,7 @@
          <content>
             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="344.0" prefWidth="639.0">
                <children>
-                  <LineChart layoutX="-1.0" prefHeight="348.0" prefWidth="641.0">
+                  <LineChart fx:id="graph" layoutX="-1.0" prefHeight="348.0" prefWidth="641.0">
                     <xAxis>
                       <CategoryAxis side="BOTTOM" />
                     </xAxis>
