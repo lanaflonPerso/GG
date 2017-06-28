@@ -19,33 +19,40 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class PlanningReservationController extends Application implements Initializable{
-	
+
 	@FXML
 	private Button b1;
-	
+
 	@FXML
 	private Button b2;
-	
+
 	@FXML
 	private DatePicker date_entre;
-	
+
 	@FXML
 	private DatePicker date_fin;
-	
+
 	@FXML
 	private TextField typeC;
-	
+
 	@FXML
 	private TextField nom;
-	
+
 	@FXML
 	private TextField prenom;
-	
+
 	@FXML
 	private Label info;
-	
-	
-	
+
+	@FXML
+	private Button BD;
+
+
+	public void actionBD(){
+		Main vc = new Main();
+		vc.setScene("ListeOverview.fxml");
+	}
+
 	public DatePicker getDate_entre() {
 		return date_entre;
 	}
@@ -110,29 +117,29 @@ public class PlanningReservationController extends Application implements Initia
 		this.b2 = b2;
 	}
 
-	
+
 
 	public void actionB1(){
 		Main vc = new Main();
 		vc.setScene("EncaisserClients.fxml");
 	}
-	
+
 	public void actionB2(){
 		Main vc = new Main();
 		vc.setScene("PlanningReservation.fxml");
 	}
-	
-	
-	
-	
+
+
+
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	}
-	
+
 	public void enregistrer(){
 		ClientDAO cd = new ClientDAO();
 		Client c = cd.getClientByNomPrenom(this.nom.getText(), this.prenom.getText());
-		
+
 		if (c == null){
 			c = new Client();
 			c.setEmail_client("");
@@ -144,20 +151,20 @@ public class PlanningReservationController extends Application implements Initia
 		}
 		ChambreDAO ch = new ChambreDAO();
 		Chambre cha = ch.getChambreById(Integer.parseInt(this.typeC.getText()));
-		
+
 		if(cha == null){
 			this.info.setText("Pas de chambre pour Numéro");
 			return;
 		}
 		ReserverDAO r = new ReserverDAO();
-		r.insertReserverByClient(c.getId_client(), cha.getId_chambre(), 
+		r.insertReserverByClient(c.getId_client(), cha.getId_chambre(),
 				this.date_entre.getValue().toString(), this.date_fin.getValue().toString());
 		this.info.setText("Réservation enregistrer");
 	}
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
+
 	}
 
 }
