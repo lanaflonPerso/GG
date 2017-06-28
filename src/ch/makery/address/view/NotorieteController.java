@@ -21,21 +21,29 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class NotorieteController extends Application implements Initializable{
-	
+
 	@FXML
 	private Button b1;
-	
+
 	@FXML
 	private Button b2;
-	
+
 	@FXML
 	private Button b3;
-	
+
 	@FXML
 	private LineChart<String, Number> graph;
-	
-	
-	
+
+	@FXML
+	private Button BD;
+
+
+	public void actionBD(){
+		Main vc = new Main();
+		vc.setScene("ListeOverview.fxml");
+	}
+
+
 	public Button getB1() {
 		return b1;
 	}
@@ -72,28 +80,28 @@ public class NotorieteController extends Application implements Initializable{
 		Main vc = new Main();
 		vc.setScene("CentaleReservation.fxml");
 	}
-	
+
 	public void actionB2(){
 		Main vc = new Main();
 		vc.setScene("AccueilHebergement.fxml");
 	}
-	
+
 	public void actionB3(){
 		Main vc = new Main();
 		vc.setScene("Notoriete.fxml");
 	}
-	
-	
-	
-	
+
+
+
+
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	        NotorieteDAO sr = new NotorieteDAO();
 	        ArrayList<Notoriete> list =sr.getNotoriete();
 			CategoryAxis xAxis = new CategoryAxis();
 	        NumberAxis yAxis = new NumberAxis();
-	        BarChart<String,Number> bc = 
+	        BarChart<String,Number> bc =
 	            new BarChart<>(xAxis,yAxis);
-	        XYChart.Series series1 = new XYChart.Series();   
+	        XYChart.Series series1 = new XYChart.Series();
 			for (Notoriete not : list)
 			{
 				series1.getData().add(new XYChart.Data(not.getNom(),not.getNote()));
@@ -101,10 +109,10 @@ public class NotorieteController extends Application implements Initializable{
 			bc.getData().add(series1);
 			this.graph.getData().addAll(series1);
 	}
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
+
 	}
 
 }

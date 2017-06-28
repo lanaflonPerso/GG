@@ -35,6 +35,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
+            <Button fx:id="BD" layoutX="769.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionBD" text="Deconnexion" />
          </children>
       </Pane>
       <BarChart fx:id="graph" layoutX="232.0" layoutY="78.0" prefHeight="353.0" prefWidth="599.0">

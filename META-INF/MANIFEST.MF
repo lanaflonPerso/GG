@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: GG
+Bundle-SymbolicName: GG
+Bundle-Version: 1.0.0.qualifier
+Bundle-ClassPath: GG.jar,
+ jsch-0.1.54.jar,
+ mysql-connector-java-5.1.42.jar
+Export-Package: application,
+ ch.makery.address,
+ ch.makery.address.DAO,
+ ch.makery.address.model,
+ ch.makery.address.view

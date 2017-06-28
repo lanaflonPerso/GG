@@ -22,29 +22,40 @@ import javafx.stage.Stage;
 import javafx.fxml.Initializable;
 
 public class EmployeParServiceController extends Application implements Initializable{
-	
+
 	@FXML
 	private Button b1;
-	
+
 	@FXML
 	private Button b2;
-	
+
 	@FXML
 	private Button b3;
-	
+
 	@FXML
 	private Button b4;
-	
+
 	@FXML
 	private Button b5;
-	
+
 	@FXML
 	private Button b6;
-	
+
+
+	@FXML
+	private Button BD;
+
+
+	public void actionBD(){
+		Main vc = new Main();
+		vc.setScene("ListeOverview.fxml");
+	}
+
+
 	@FXML
 	private BarChart<String, Number> graph;
-	
-	
+
+
 	public Button getB1() {
 		return b1;
 	}
@@ -106,42 +117,42 @@ public class EmployeParServiceController extends Application implements Initiali
 		System.out.println("test b1");
 		vc.setScene("TauxJournalierRemplissageHotel.fxml");
 	}
-	
+
 	public void actionB2(){
 		Main vc = new Main();
 		vc.setScene("MoyenneTauxFrequentation.fxml");
 	}
-	
+
 	public void actionB3(){
 		Main vc = new Main();
 		vc.setScene("NombrePetitDejeuner.fxml");
 	}
-	
+
 	public void actionB4(){
 		Main vc = new Main();
 		vc.setScene("PanierMoyen.fxml");
 	}
-	
+
 	public void actionB5(){
 		Main vc = new Main();
 		vc.setScene("DepenseParService.fxml");
 	}
-	
+
 	public void actionB6(){
 		Main vc = new Main();
 		vc.setScene("EmployeParService.fxml");
 	}
-	
-	
+
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	        ServiceEmployeDAO sr = new ServiceEmployeDAO();
 	        HashMap<String,Integer> list =sr.getNombreEmpService();
 			CategoryAxis xAxis = new CategoryAxis();
 	        NumberAxis yAxis = new NumberAxis();
-	        BarChart<String,Number> bc = 
+	        BarChart<String,Number> bc =
 	            new BarChart<>(xAxis,yAxis);
-	        XYChart.Series series1 = new XYChart.Series();   
+	        XYChart.Series series1 = new XYChart.Series();
 			for (String serv : list.keySet())
 			{
 				series1.getData().add(new XYChart.Data(serv,list.get(serv)));
@@ -149,12 +160,12 @@ public class EmployeParServiceController extends Application implements Initiali
 			bc.getData().add(series1);
 			this.graph.getData().addAll(series1);
 	}
-	
+
 	public void visualisation(){
-		
+
 	}
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
+
 	}
 }

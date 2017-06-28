@@ -23,39 +23,49 @@ import javafx.stage.Stage;
 import javafx.fxml.Initializable;
 
 public class TauxJournalierRemplissageHotelController extends Application implements Initializable{
-	
+
 	@FXML
 	private Button b1;
-	
+
 	@FXML
 	private Button b2;
-	
+
 	@FXML
 	private Button b3;
-	
+
 	@FXML
 	private Button b4;
-	
+
 	@FXML
 	private Button b5;
-	
+
 	@FXML
 	private Button b6;
-	
+
 	@FXML
 	private Button validate;
-	
+
 	@FXML
 	private LineChart<String, Number> graph;
-	
+
 	@FXML
 	private DatePicker date1;
-	
+
 	@FXML
 	private DatePicker date2;
-	
-	
-	
+
+
+	@FXML
+	private Button BD;
+
+
+	public void actionBD(){
+		Main vc = new Main();
+		vc.setScene("ListeOverview.fxml");
+	}
+
+
+
 	public Button getB1() {
 		return b1;
 	}
@@ -142,40 +152,40 @@ public class TauxJournalierRemplissageHotelController extends Application implem
 		System.out.println("test b1");
 		vc.setScene("TauxJournalierRemplissageHotel.fxml");
 	}
-	
+
 	public void actionB2(){
 		Main vc = new Main();
 		vc.setScene("MoyenneTauxFrequentation.fxml");
 	}
-	
+
 	public void actionB3(){
 		Main vc = new Main();
 		vc.setScene("NombrePetitDejeuner.fxml");
 	}
-	
+
 	public void actionB4(){
 		Main vc = new Main();
 		vc.setScene("PanierMoyen.fxml");
 	}
-	
+
 	public void actionB5(){
 		Main vc = new Main();
 		vc.setScene("DepenseParService.fxml");
 	}
-	
+
 	public void actionB6(){
 		Main vc = new Main();
 		vc.setScene("EmployeParService.fxml");
 	}
-	
-	
+
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	}
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		
+
 	}
 
 	public void tauxFrequantation(){
@@ -183,40 +193,40 @@ public class TauxJournalierRemplissageHotelController extends Application implem
 		LocalDate localDate =  getDate1().getValue();
 		Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
 		Date date_debut  = Date.from(instant);
-		
+
 		localDate =  getDate2().getValue();
 		instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
 		Date date_fin  = Date.from(instant);
-		
-		
-		if((date_fin.getTime()-date_debut.getTime()) / (60*1000*60*24) %60 <= 6 
+
+
+		if((date_fin.getTime()-date_debut.getTime()) / (60*1000*60*24) %60 <= 6
 				&& date_fin.getTime()-date_debut.getTime() / (60*1000*60*24) %60 >=0){
-			
+
 			CategoryAxis xAxis = new CategoryAxis();
 	        NumberAxis yAxis = new NumberAxis();
-	        BarChart<String,Number> bc = 
+	        BarChart<String,Number> bc =
 	            new BarChart<>(xAxis,yAxis);
-	        XYChart.Series series1 = new XYChart.Series();   
+	        XYChart.Series series1 = new XYChart.Series();
 			for (LocalDate date =  getDate1().getValue(); date.isBefore(getDate2().getValue().plusDays(1)); date = date.plusDays(1))
 			{
-				
+
 				ReserverDAO rs = new ReserverDAO();
 				System.out.println(date.toString());
-				series1.getData().add(new XYChart.Data(date.toString(),  rs.getReserverByDate(date.toString())));   
-				
+				series1.getData().add(new XYChart.Data(date.toString(),  rs.getReserverByDate(date.toString())));
+
 			}
-			
-	        
-	           
+
+
+
 	        bc.getData().add(series1);
 			this.graph.getData().addAll(bc.getData());
-			
-			
-			
-			
+
+
+
+
 		}
-		
-		
+
+
 	}
 
 }

@@ -23,35 +23,44 @@ import javafx.stage.Stage;
 public class CentraleReservationController extends Application implements Initializable{
     @FXML
     private Button b1;
-	
+
     @FXML
     private Button b2;
-	
+
     @FXML
     private Button b3;
-    
+
+	@FXML
+	private Button BD;
+
+
+	public void actionBD(){
+		Main vc = new Main();
+		vc.setScene("ListeOverview.fxml");
+	}
+
     public void actionB1(){
 	Main vc = new Main();
 	vc.setScene("CentaleReservation.fxml");
     }
-	
+
     public void actionB2(){
 	Main vc = new Main();
 	vc.setScene("AccueilHebergement.fxml");
     }
-	
+
     public void actionB3(){
 	Main vc = new Main();
 	vc.setScene("Notoriete.fxml");
     }
-    
+
     @Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         OffreDAO sro = new OffreDAO();
         ChambreDAO src = new ChambreDAO();
         ReserverDAO srr = new ReserverDAO();
         Date aujourd = new Date();
-        
+
         int numChambre = 0;
         int nbLits = 0;
         String lienUrl ="";
@@ -77,12 +86,12 @@ public class CentraleReservationController extends Application implements Initia
                 }
             }
             /* On complete la vue avec les données récuperer ci-dessus */
-            
+
         }
     }
-	
+
     @Override
     public void start(Stage primaryStage) throws Exception {
-		
+
     }
 }

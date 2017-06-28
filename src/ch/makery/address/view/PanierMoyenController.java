@@ -36,6 +36,17 @@ public class PanierMoyenController extends Application implements Initializable{
 	@FXML
 	private Label montantPanier;
 
+
+	@FXML
+	private Button BD;
+
+
+	public void actionBD(){
+		Main vc = new Main();
+		vc.setScene("ListeOverview.fxml");
+	}
+
+
 	public void actionB1(){
 		Main vc = new Main();
 		vc.setScene("TauxJournalierRemplissageHotel.fxml");

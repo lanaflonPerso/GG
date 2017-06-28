@@ -27,6 +27,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
+            <Button fx:id="BD" layoutX="769.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionBD" text="Deconnexion" />
          </children>
       </Pane>
    </children>
