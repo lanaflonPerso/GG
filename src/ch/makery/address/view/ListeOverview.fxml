@@ -20,7 +20,7 @@
          </font></Button>
       <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="55.0" layoutY="53.0">
          <image>
-            <Image url="@../../../../../../../../Téléchargement/Logo-gg4-7087px.png" />
+            <Image url="@Logo-gg4-7087px.png" />
          </image>
       </ImageView>
       <Text layoutX="398.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" />
