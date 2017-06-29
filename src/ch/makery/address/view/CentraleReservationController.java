@@ -54,7 +54,8 @@ public class CentraleReservationController extends Application implements Initia
 	vc.setScene("Notoriete.fxml");
     }
 
-    @Override
+    @SuppressWarnings("unused")
+	@Override
     public void initialize(URL arg0, ResourceBundle arg1) {
         OffreDAO sro = new OffreDAO();
         ChambreDAO src = new ChambreDAO();

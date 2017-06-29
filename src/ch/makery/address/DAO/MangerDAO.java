@@ -28,19 +28,19 @@ public class MangerDAO {
                     res.setId_client(rs.getInt("id_client"));
                     res.setId_table(rs.getInt("id_table"));
                     res.setNb_couverts(rs.getInt("nb_couverts"));
-                    
+
                     connection.close();
 		    db.CloseSSHConnection();
                     tabManger.add(res);
 		}
                 return tabManger;
-			
+
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
         db.CloseSSHConnection();
         return null;
     }
@@ -57,18 +57,18 @@ public class MangerDAO {
                     res.setId_client(rs.getInt("id_client"));
                     res.setId_table(rs.getInt("id_table"));
                     res.setNb_couverts(rs.getInt("nb_couverts"));
-                    
+
                     connection.close();
 		    db.CloseSSHConnection();
                     return res;
 		}
-			
+
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
         db.CloseSSHConnection();
         return null;
     }

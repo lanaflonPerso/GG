@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 
 import javafx.fxml.Initializable;
 
+@SuppressWarnings("unused")
 public class DepenseParServiceController extends Application implements Initializable{
 
 	@FXML
@@ -145,6 +146,7 @@ public class DepenseParServiceController extends Application implements Initiali
 	}
 
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	        ServiceDAO sr = new ServiceDAO();

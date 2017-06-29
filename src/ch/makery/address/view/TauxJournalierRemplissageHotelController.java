@@ -188,6 +188,7 @@ public class TauxJournalierRemplissageHotelController extends Application implem
 
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void tauxFrequantation(){
 		this.graph.getData().clear();
 		LocalDate localDate =  getDate1().getValue();

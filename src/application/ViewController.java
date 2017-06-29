@@ -11,6 +11,7 @@ import javafx.application.Application;
 import javafx.stage.Stage;
 
 
+@SuppressWarnings("unused")
 public class ViewController extends Application{
 
     static Stage stage = null;
@@ -22,7 +23,7 @@ public class ViewController extends Application{
     public void first(){
         launch();
     }
-    
+
 @Override
     public void start(Stage primaryStage) throws Exception {
          stage = primaryStage;
@@ -39,7 +40,7 @@ public class ViewController extends Application{
      * argument
      *     lien = nomDuFichier.fxml dans package View
      *     del = est ce un retour à la fenetre precedente
-     * Changement de scene 
+     * Changement de scene
      */
     public void setScene(String lien){
         try {

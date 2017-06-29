@@ -21,6 +21,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+@SuppressWarnings("unused")
 public class TauxReservationController extends Application implements Initializable{
 
 	@FXML
@@ -186,6 +187,7 @@ public class TauxReservationController extends Application implements Initializa
 
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void tauxFrequantation(){
 		this.graph.getData().clear();
 		LocalDate localDate =  getDate1().getValue();

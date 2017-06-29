@@ -8,6 +8,7 @@ import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
+@SuppressWarnings("unused")
 public class MySQLSSHConnector {
 	public  Session session;
 
@@ -20,7 +21,7 @@ public Connection connection_db() throws SQLException {
 		//String host = "109.24.204.203";
 		String servUser = "g4";
 		String servPwd = "1ALJ826HtE";
-		
+
                 int port = 22;
                 //int port = 22111;
 

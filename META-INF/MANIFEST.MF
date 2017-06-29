@@ -11,3 +11,4 @@ Export-Package: application,
  ch.makery.address.DAO,
  ch.makery.address.model,
  ch.makery.address.view
+Main-Class: application.Main
