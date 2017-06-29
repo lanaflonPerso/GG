@@ -15,9 +15,9 @@
    <children>
       <Pane layoutY="36.0" prefHeight="436.0" prefWidth="200.0" style="-fx-border-color: black;">
          <children>
-            <Button fx:id="b1" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Centrale de réservation" />
+            <Button fx:id="B1" layoutY="14.0" mnemonicParsing="false" onAction="#actionB1" prefHeight="25.0" prefWidth="200.0" text="Centrale de réservation" />
             <Button fx:id="b2" layoutY="55.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Agences de voyages" />
-            <Button fx:id="b3" layoutY="93.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="Notoriété" />
+            <Button fx:id="b3" layoutY="93.0" mnemonicParsing="false" onAction="#actionB3" prefHeight="25.0" prefWidth="200.0" text="Notoriété" />
          </children>
       </Pane>
       <Label layoutX="443.0" layoutY="43.0" text="Notoriété de l'hôtel">
