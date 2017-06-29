@@ -12,7 +12,6 @@ import java.util.ArrayList;
  *
  * @author maxim
  */
-@SuppressWarnings("unused")
 public class MenuDAO {
     public Menu getMenuById(int id){
         MySQLSSHConnector db = new MySQLSSHConnector();
@@ -42,7 +41,6 @@ public class MenuDAO {
         db.CloseSSHConnection();
         return null;
     }
-<<<<<<< Updated upstream
     public ArrayList<Menu> getAll(){
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
@@ -57,19 +55,19 @@ public class MenuDAO {
                     res.setId_menu(rs.getInt("id_menu"));
                     res.setMontant(rs.getDouble("montant"));
                     res.setNom_menu(rs.getString("nom_menu"));
-                    
+
                     connection.close();
 		    db.CloseSSHConnection();
                     tabMenu.add(res);
 		}
                 return tabMenu;
-			
+
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
         db.CloseSSHConnection();
         return null;
     }
@@ -79,7 +77,7 @@ public class MenuDAO {
             Connection connection = db.connection_db();
             PreparedStatement pr = null;
             pr = (PreparedStatement) connection.prepareStatement("UPDATE Menu SET montant = " + montant + " WHERE id_menu = " + idMenu);
-                
+
             if(pr.executeUpdate() != 0){
                 //Success
                 System.out.println("Update Menu Success");
@@ -87,11 +85,11 @@ public class MenuDAO {
                 // Failed
                 System.out.println("Update Menu Failed");
             }
-                
-            connection.close();	
+
+            connection.close();
             db.CloseSSHConnection();
             return true;
-                    
+
         } catch (SQLException e) {
             // TODO Auto-generated catch block
             db.CloseSSHConnection();
@@ -99,6 +97,4 @@ public class MenuDAO {
             return false;
         }
     }
-=======
->>>>>>> Stashed changes
 }

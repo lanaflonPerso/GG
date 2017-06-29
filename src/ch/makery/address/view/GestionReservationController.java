@@ -23,6 +23,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
+@SuppressWarnings("unused")
 public class GestionReservationController extends Application implements Initializable{
 
 	@FXML
@@ -36,33 +37,33 @@ public class GestionReservationController extends Application implements Initial
 
 	@FXML
 	private Button BD;
-	
+
 	@FXML
 	private Button supp;
-	
+
 	@FXML
 	private Button find;
-	
-	 @FXML 
+
+	 @FXML
 	 private TableView<Reservation_Client> tab;
-	 
-	 @FXML 
+
+	 @FXML
 	 private TableView<Client> tab2;
-	 
-	 @FXML 
+
+	 @FXML
 	 private TableColumn<Reservation_Client, Date> c1;
-	 @FXML 
+	 @FXML
 	 private TableColumn<Reservation_Client, Date> c2;
-	 @FXML 
+	 @FXML
 	 private TableColumn<Reservation_Client, Integer> c3;
-	 @FXML 
+	 @FXML
 	 private TableColumn<Reservation_Client, String> c4;
-	 @FXML 
+	 @FXML
 	 private TableColumn<Reservation_Client, String> c5;
-	 
+
 	 @FXML
 	 private DatePicker date1;
-	 
+
 	 @FXML
 	 private DatePicker date2;
 
@@ -92,7 +93,7 @@ public class GestionReservationController extends Application implements Initial
 	public void find(){
 		this.tab.getItems().removeAll(tab.getItems());
 		ReserverDAO res = new ReserverDAO();
-		ClientDAO cd = new ClientDAO(); 
+		ClientDAO cd = new ClientDAO();
 		ArrayList<Reserver> listRes = res.getReserverByDate(this.date1.getValue().toString(), this.date2.getValue().toString());
 		if (listRes != null){
 			for(Reserver r : listRes){
@@ -108,14 +109,14 @@ public class GestionReservationController extends Application implements Initial
 			}
 		}
 	}
-	
+
 	public void supp(){
 		Reservation_Client cpt = tab.getSelectionModel().getSelectedItem();
 		ReserverDAO rd = new ReserverDAO();
 		rd.suuppReserverByDate(cpt.getDate_debut().toString(), cpt.getDate_fin().toString());
 		find();
 	}
-	
+
 	public void select(){
 		Reservation_Client cpt = tab.getSelectionModel().getSelectedItem();
 	    if( cpt !=null ){

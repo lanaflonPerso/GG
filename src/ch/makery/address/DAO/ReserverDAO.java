@@ -47,8 +47,7 @@ public class ReserverDAO {
             db.CloseSSHConnection();
           return null;
     }
-<<<<<<< Updated upstream
-    
+
     public void suuppReserverByDate(String date1 , String date2) {
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
@@ -58,23 +57,20 @@ public class ReserverDAO {
 				+ date1+"' and date_fin ='"+date2+"'");
 		System.out.println(pr.asSql());
 		pr.executeUpdate();
-                    
-                    connection.close();	
+
+                    connection.close();
                     db.CloseSSHConnection();
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
             db.CloseSSHConnection();
           return;
     }
-        
-    
-=======
 
->>>>>>> Stashed changes
+
     public void insertReserverByClient(int id_client, int id_chambre, String date1, String date2) {
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
@@ -164,7 +160,7 @@ public class ReserverDAO {
             db.CloseSSHConnection();
           return 0;
     }
-    
+
     public ArrayList<Reserver> getReserverByDate(String date1 , String date2) {
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
@@ -176,23 +172,23 @@ public class ReserverDAO {
 		ResultSet rs = pr.executeQuery();
 		ArrayList<Reserver> res = new ArrayList<>();
 		while (rs.next()){
-              Reserver r = new Reserver();      
+              Reserver r = new Reserver();
 			r.setDate_debut(rs.getDate(1));
 			r.setDate_fin(rs.getDate(2));
 			r.setId_chambre(rs.getInt(7));
 			r.setId_client(rs.getInt(6));
 			res.add(r);
-                    
+
 		}
-		connection.close();	
+		connection.close();
         db.CloseSSHConnection();
-        return res;	
+        return res;
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
             db.CloseSSHConnection();
           return null;
     }
