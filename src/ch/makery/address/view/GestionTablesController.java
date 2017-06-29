@@ -104,23 +104,23 @@ public class GestionTablesController extends Application implements Initializabl
                 nbCouvert = " - ";
                 nomClient = " - ";
             }
-            Button but = new Button("Modifier");
-            but.setOnAction(new EventHandler<ActionEvent>(){
-                @Override
-                public void handle(ActionEvent event) {
-                    Reservation_Table tab = tableView.getSelectionModel().getSelectedItem();
-                    if(tab.getNbCouvert().contains("-")){ /* Check si la table est réservé */
-                        System.out.println("Supprimer");
-                        int id_table = srt.getTableByNum(tab.getNumTable()).getId_table();
-                        srm.supprManger(id_table, srm.getMangerByTable(id_table).getId_client());
-                    }else{
-                        System.out.println("Reserver");
-                    }
-                }
-            });
+            Button but = null;
+            //Button but = new Button("Modifier");
+            //but.setOnAction(new EventHandler<ActionEvent>(){
+            //    @Override
+            //    public void handle(ActionEvent event) {
+            //        Reservation_Table tab = tableView.getSelectionModel().getSelectedItem();
+            //        if(tab.getNbCouvert().contains("-")){ /* Check si la table est réservé */
+            //            System.out.println("Supprimer");
+            //            int id_table = srt.getTableByNum(tab.getNumTable()).getId_table();
+            //            srm.supprManger(id_table, srm.getMangerByTable(id_table).getId_client());
+            //        }else{
+            //            System.out.println("Reserver");
+            //        }
+            //    }
+            //});
             Reservation_Table rt = new Reservation_Table(table.getNumero_table(), table.getNb_place() + " places", nbCouvert, nomClient, but);
             tableView.getItems().add(rt);
-            
         }
     }
     
