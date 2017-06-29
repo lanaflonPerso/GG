@@ -21,6 +21,7 @@ import javafx.stage.Stage;
 
 import javafx.fxml.Initializable;
 
+@SuppressWarnings("unused")
 public class EmployeParServiceController extends Application implements Initializable{
 
 	@FXML
@@ -144,6 +145,7 @@ public class EmployeParServiceController extends Application implements Initiali
 	}
 
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	        ServiceEmployeDAO sr = new ServiceEmployeDAO();

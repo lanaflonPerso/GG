@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 import javafx.fxml.Initializable;
 
+@SuppressWarnings("unused")
 public class NombrePetitDejeunerController extends Application implements Initializable{
 
 	@FXML
@@ -176,6 +177,7 @@ public class NombrePetitDejeunerController extends Application implements Initia
 
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void validate(){
 		this.graph.getData().clear();
 		LocalDate localDate =  getDate1().getValue();

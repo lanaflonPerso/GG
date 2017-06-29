@@ -12,6 +12,7 @@ import java.util.ArrayList;
  *
  * @author maxim
  */
+@SuppressWarnings("unused")
 public class MenuDAO {
     public Menu getMenuById(int id){
         MySQLSSHConnector db = new MySQLSSHConnector();
@@ -26,21 +27,22 @@ public class MenuDAO {
                     res.setId_menu(rs.getInt("id_menu"));
                     res.setMontant(rs.getDouble("montant"));
                     res.setNom_menu(rs.getString("nom_menu"));
-                    
+
                     connection.close();
 		    db.CloseSSHConnection();
                     return res;
 		}
-			
+
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
         db.CloseSSHConnection();
         return null;
     }
+<<<<<<< Updated upstream
     public ArrayList<Menu> getAll(){
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
@@ -97,4 +99,6 @@ public class MenuDAO {
             return false;
         }
     }
+=======
+>>>>>>> Stashed changes
 }

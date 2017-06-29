@@ -13,6 +13,7 @@ import java.util.ArrayList;
  *
  * @author maxim
  */
+@SuppressWarnings("unused")
 public class ReserverDAO {
     public Reserver getReserverByClient(int id_client) {
         MySQLSSHConnector db = new MySQLSSHConnector();
@@ -31,21 +32,22 @@ public class ReserverDAO {
                     res.setId_client(rs.getInt("id_client"));
                     res.setMoyen_de_reservation(rs.getString("moyen_de_reservation"));
                     res.setNom_agence_voyage(rs.getString("nom_agence_voyage"));
-                    
-                    connection.close();	
+
+                    connection.close();
                     db.CloseSSHConnection();
                     return res;
 		}
-			
+
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
             db.CloseSSHConnection();
           return null;
     }
+<<<<<<< Updated upstream
     
     public void suuppReserverByDate(String date1 , String date2) {
         MySQLSSHConnector db = new MySQLSSHConnector();
@@ -70,6 +72,9 @@ public class ReserverDAO {
     }
         
     
+=======
+
+>>>>>>> Stashed changes
     public void insertReserverByClient(int id_client, int id_chambre, String date1, String date2) {
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
@@ -97,9 +102,9 @@ public class ReserverDAO {
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
     }
-    
+
     public Reserver getReserverByChambre(int id_chambre) {
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
@@ -107,7 +112,7 @@ public class ReserverDAO {
 		PreparedStatement pr = null;
 		pr = (PreparedStatement) connection.prepareStatement("Select * from Reserver WHERE id_chambre = "+ id_chambre);
 		ResultSet rs = pr.executeQuery();
-		
+
 		if (rs.next()){
                     Reserver res = new Reserver();
                     res.setDate_debut(rs.getDate("date_debut"));
@@ -117,22 +122,22 @@ public class ReserverDAO {
                     res.setId_client(rs.getInt("id_client"));
                     res.setMoyen_de_reservation(rs.getString("moyen_de_reservation"));
                     res.setNom_agence_voyage(rs.getString("nom_agence_voyage"));
-                    
-                    connection.close();	
+
+                    connection.close();
                     db.CloseSSHConnection();
                     return res;
 		}
-			
+
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
             db.CloseSSHConnection();
           return null;
     }
-    
+
     public int getReserverByDate(String date) {
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
@@ -142,20 +147,20 @@ public class ReserverDAO {
 				+ " and date_fin >= '"+date+"'");
 		ResultSet rs = pr.executeQuery();
 		if (rs.next()){
-                    
+
 			int i = rs.getInt(1);
 			System.out.println(i);
-                    connection.close();	
+                    connection.close();
                     db.CloseSSHConnection();
                     return i;
 		}
-			
+
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
             db.CloseSSHConnection();
           return 0;
     }

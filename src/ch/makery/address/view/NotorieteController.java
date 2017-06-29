@@ -20,6 +20,7 @@ import javafx.scene.chart.XYChart;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
+@SuppressWarnings("unused")
 public class NotorieteController extends Application implements Initializable{
 
 	@FXML
@@ -94,6 +95,7 @@ public class NotorieteController extends Application implements Initializable{
 
 
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public void initialize(URL arg0, ResourceBundle arg1) {
 	        NotorieteDAO sr = new NotorieteDAO();
 	        ArrayList<Notoriete> list =sr.getNotoriete();

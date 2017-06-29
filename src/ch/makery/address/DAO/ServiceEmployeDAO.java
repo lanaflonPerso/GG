@@ -16,8 +16,9 @@ import java.util.List;
  *
  * @author maxim
  */
+@SuppressWarnings("unused")
 public class ServiceEmployeDAO {
-	
+
 	public HashMap<String,Integer> getNombreEmpService(){
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
@@ -31,20 +32,20 @@ public class ServiceEmployeDAO {
 		ResultSet rs = pr.executeQuery();
 		HashMap<String,Integer> list = new HashMap<>();
 		while(rs.next()){
-					
+
                     list.put(rs.getString(2),rs.getInt(1));
-                    
+
 		}
-		connection.close();	
+		connection.close();
         db.CloseSSHConnection();
 		return list;
-			
+
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
             db.CloseSSHConnection();
           return null;
     }
@@ -60,18 +61,18 @@ public class ServiceEmployeDAO {
                     Service_employe res = new Service_employe();
                     res.setId_service_employe(rs.getInt("id__service_employe"));
                     res.setNom_service(rs.getString("nom_service"));
-                    
-                    connection.close();	
+
+                    connection.close();
                     db.CloseSSHConnection();
                     return res;
 		}
-			
+
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
             db.CloseSSHConnection();
           return null;
     }
@@ -87,18 +88,18 @@ public class ServiceEmployeDAO {
                     Service_employe res = new Service_employe();
                     res.setId_service_employe(rs.getInt("id__service_employe"));
                     res.setNom_service(rs.getString("nom_service"));
-                    
-                    connection.close();	
+
+                    connection.close();
                     db.CloseSSHConnection();
                     return res;
 		}
-			
+
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
                 db.CloseSSHConnection();
 		e.printStackTrace();
             }
-            
+
             db.CloseSSHConnection();
           return null;
     }

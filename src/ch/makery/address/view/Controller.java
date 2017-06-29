@@ -13,13 +13,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+@SuppressWarnings("unused")
 public class Controller extends Application {
-	
+
   	@FXML
     private TextField name;
     @FXML
     private TextField tel;
-    
+
     @FXML
     private Text label;
 
@@ -43,7 +44,7 @@ public class Controller extends Application {
 		// TODO Auto-generated method stub
 
 	}
-	
+
 	public void test() throws SQLException, IOException{
 		UtilisateurDAO dao = new UtilisateurDAO();
 		Utilisateur user = dao.login(this.name.getText(), this.tel.getText());
@@ -65,9 +66,9 @@ public class Controller extends Application {
 		else{
 			this.label.setText("Faillure");
 		}
-		
-		
-		
+
+
+
 	}
 
 	public Text getLabel() {
