@@ -1,7 +1,6 @@
 package ch.makery.address.DAO;
 
 import application.MySQLSSHConnector;
-import ch.makery.address.model.Facture;
 import ch.makery.address.model.Manger;
 import com.mysql.jdbc.PreparedStatement;
 import java.sql.Connection;
@@ -11,8 +10,9 @@ import java.util.ArrayList;
 
 /**
  *
- * @author maxim
+ * @author maxime
  */
+@SuppressWarnings("unused")
 public class MangerDAO {
     public ArrayList<Manger> getMangerByClient(int idClient){
         MySQLSSHConnector db = new MySQLSSHConnector();
@@ -44,16 +44,15 @@ public class MangerDAO {
         db.CloseSSHConnection();
         return null;
     }
-    public ArrayList<Manger> getMangerByTable(int idTable){
+    public Manger getMangerByTable(int idTable){
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
                 Connection connection = db.connection_db();
 		PreparedStatement pr = null;
 		pr = (PreparedStatement) connection.prepareStatement("Select * from Manger WHERE id_table = "+ idTable);
 		ResultSet rs = pr.executeQuery();
-                ArrayList<Manger> tabManger = new ArrayList<>();
 
-		while (rs.next()){
+		if (rs.next()){
                     Manger res = new Manger();
                     res.setId_client(rs.getInt("id_client"));
                     res.setId_table(rs.getInt("id_table"));
@@ -61,9 +60,8 @@ public class MangerDAO {
                     
                     connection.close();
 		    db.CloseSSHConnection();
-                    tabManger.add(res);
+                    return res;
 		}
-                return tabManger;
 			
             } catch (SQLException e) {
 		// TODO Auto-generated catch block
@@ -79,7 +77,7 @@ public class MangerDAO {
             try {
                 Connection connection = db.connection_db();
 		PreparedStatement pr = null;
-		pr = (PreparedStatement) connection.prepareStatement("DELETE TABLE FROM Manger WHERE id_client = " + idClient + " AND id_table = " + idTable);
+		pr = (PreparedStatement) connection.prepareStatement("DELETE FROM Manger WHERE id_client = " + idClient + " AND id_table = " + idTable);
                 
                 if(pr.executeUpdate() != 0){
                     //Success

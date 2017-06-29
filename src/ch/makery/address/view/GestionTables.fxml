@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -12,7 +18,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="869.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane layoutY="36.0" prefHeight="436.0" prefWidth="200.0" style="-fx-border-color: black;">
          <children>
@@ -34,123 +40,18 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Button fx:id="BD" layoutX="769.0" layoutY="6.0" mnemonicParsing="false" onAction="#actionBD" text="Deconnexion" />
+            <Button fx:id="BD" layoutX="756.0" layoutY="2.0" mnemonicParsing="false" onAction="#actionBD" text="Deconnexion" />
          </children>
       </Pane>
-      <ScrollPane layoutX="217.0" layoutY="88.0" prefHeight="376.0" prefWidth="641.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="485.0" prefWidth="639.0">
-               <children>
-                  <Button layoutX="560.0" layoutY="45.0" mnemonicParsing="false" text="Modifier" />
-                  <GridPane layoutX="18.0" layoutY="24.0" prefHeight="67.0" prefWidth="524.0" style="-fx-border-color: black;">
-                    <columnConstraints>
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="46.0" />
-                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="110.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="108.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="0.0" prefWidth="110.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="67.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="82.0" />
-                    </columnConstraints>
-                    <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    </rowConstraints>
-                     <children>
-                        <Label text="Table 1" />
-                        <Label prefHeight="65.0" prefWidth="110.0" text="Maximum pour 4 personnes" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="91.0" text="Réservé pour x personnes" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="72.0" text="Réservé par M. X" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="85.0" text="Date" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
-                        <Circle fill="#c45555" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
-                        <Label prefHeight="65.0" prefWidth="48.0" text="Non réservé" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="5" />
-                     </children>
-                  </GridPane>
-                  <Button layoutX="560.0" layoutY="128.0" mnemonicParsing="false" text="Modifier" />
-                  <GridPane layoutX="18.0" layoutY="107.0" prefHeight="67.0" prefWidth="524.0" style="-fx-border-color: black;">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="46.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="110.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="108.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="0.0" prefWidth="110.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="67.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="82.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label text="Table 2" />
-                        <Label prefHeight="65.0" prefWidth="110.0" text="Maximum pour 6 personnes" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="91.0" text="Réservé pour x personnes" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="72.0" text="Réservé par M. X" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="85.0" text="Date" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
-                        <Circle fill="#3d8940" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
-                        <Label prefHeight="65.0" prefWidth="48.0" text="Réservé" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="5" />
-                     </children>
-                  </GridPane>
-                  <Button layoutX="560.0" layoutY="209.0" mnemonicParsing="false" text="Modifier" />
-                  <GridPane layoutX="18.0" layoutY="188.0" prefHeight="67.0" prefWidth="524.0" style="-fx-border-color: black;">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="46.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="110.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="108.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="0.0" prefWidth="110.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="67.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="82.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label text="Table 3" />
-                        <Label prefHeight="65.0" prefWidth="110.0" text="Maximum pour 8 personnes" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="91.0" text="Réservé pour x personnes" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="72.0" text="Réservé par M. X" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="85.0" text="Date" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
-                        <Circle fill="#c45555" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
-                        <Label prefHeight="65.0" prefWidth="48.0" text="Non réservé" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="5" />
-                     </children>
-                  </GridPane>
-                  <Button layoutX="560.0" layoutY="293.0" mnemonicParsing="false" text="Modifier" />
-                  <GridPane layoutX="18.0" layoutY="272.0" prefHeight="67.0" prefWidth="524.0" style="-fx-border-color: black;">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="82.0" minWidth="10.0" prefWidth="46.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="110.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="10.0" prefWidth="108.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="169.0" minWidth="0.0" prefWidth="110.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="96.0" minWidth="10.0" prefWidth="67.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="82.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label text="Table 4" />
-                        <Label prefHeight="65.0" prefWidth="110.0" text="Maximum pour 10 personnes" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="91.0" text="Réservé pour x personnes" textAlignment="CENTER" textOverrun="WORD_ELLIPSIS" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="72.0" text="Réservé par M. X" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
-                        <Label prefHeight="65.0" prefWidth="85.0" text="Date" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" />
-                        <Circle fill="#3d8940" radius="15.0" stroke="BLACK" strokeType="INSIDE" GridPane.columnIndex="5" GridPane.halignment="RIGHT" />
-                        <Label prefHeight="65.0" prefWidth="48.0" text="Réservé" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="5" />
-                     </children>
-                  </GridPane>
-                  <Label layoutX="14.0" layoutY="397.0" prefHeight="52.0" prefWidth="87.0" text="Total :" />
-                  <GridPane layoutX="85.0" layoutY="389.0" prefHeight="67.0" prefWidth="405.0" style="-fx-border-color: black;">
-                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="221.0" minWidth="10.0" prefWidth="202.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="152.0" />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                     </rowConstraints>
-                     <children>
-                        <Label prefHeight="82.0" prefWidth="241.0" text="Nombre total de couvert" textAlignment="CENTER" wrapText="true" />
-                        <Label prefHeight="90.0" prefWidth="196.0" text="Nombre de réservations" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
-                     </children>
-                  </GridPane>
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
+      <TableView layoutX="209.0" layoutY="84.0" prefHeight="378.0" prefWidth="653.0">
+        <columns>
+          <TableColumn prefWidth="84.0" text="Numéro" />
+          <TableColumn prefWidth="148.0" text="Nombre de places" />
+            <TableColumn minWidth="0.0" prefWidth="175.0" text="Nombre de personnes" />
+            <TableColumn prefWidth="121.0" text="Réservé par" />
+            <TableColumn prefWidth="124.0" text="Actions" />
+        </columns>
+      </TableView>
    </children>
    <opaqueInsets>
       <Insets />
