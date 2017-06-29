@@ -119,7 +119,7 @@ public class GestionTablesController extends Application implements Initializabl
                 }
             });
             Reservation_Table rt = new Reservation_Table(table.getNumero_table(), table.getNb_place() + " places", nbCouvert, nomClient, but);
-            
+            tableView.getItems().add(rt);
             
         }
     }

@@ -38,7 +38,7 @@ public class MainAppController extends Application {
     public void setScene(String lien){
     	
         try {
-        	Parent root = FXMLLoader.load(getClass().getResource("view\\"+lien));
+        	Parent root = FXMLLoader.load(getClass().getResource("view/"+lien));
             //Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("view/ListeOverview.fxml"));
             
              // Show the scene containing the root layout.
