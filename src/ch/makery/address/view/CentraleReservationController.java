@@ -1,6 +1,6 @@
 package ch.makery.address.view;
 
-import application.Main;
+import ch.makery.address.Main;
 import ch.makery.address.DAO.ChambreDAO;
 import ch.makery.address.DAO.OffreDAO;
 import ch.makery.address.model.Chambre;
@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
+
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

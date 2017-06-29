@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
-import application.Main;
+import ch.makery.address.Main;
 import ch.makery.address.DAO.ServiceDAO;
 import ch.makery.address.DAO.ServiceEmployeDAO;
 import ch.makery.address.model.Service;

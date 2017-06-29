@@ -3,7 +3,7 @@ package ch.makery.address.view;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import application.Main;
+import ch.makery.address.Main;
 import ch.makery.address.DAO.ChambreDAO;
 import ch.makery.address.DAO.ClientDAO;
 import ch.makery.address.DAO.ReserverDAO;
@@ -120,8 +120,6 @@ public class PlanningReservationController extends Application implements Initia
 
 
 	public void actionB1(){
-		Main vc = new Main();
-		vc.setScene("EncaisserClients.fxml");
 	}
 
 	public void actionB2(){

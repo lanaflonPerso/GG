@@ -38,13 +38,13 @@ public class ViewController extends Application{
 
     /*
      * argument
-     *     lien = nomDuFichier.fxml dans package View
+     *     lien = nomDuFichier.fxml dans package Vi
      *     del = est ce un retour à la fenetre precedente
      * Changement de scene
      */
     public void setScene(String lien){
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../ch/makery/address/view/"+lien));
+            Parent root = FXMLLoader.load(getClass().getResource("/ch/makery/address/view/"+lien));
              // Show the scene containing the root layout.
              Scene scene = new Scene(root);
              stage.setScene(scene);

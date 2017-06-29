@@ -7,7 +7,7 @@ import java.time.ZoneId;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import application.Main;
+import ch.makery.address.Main;
 import ch.makery.address.DAO.CommanderDAO;
 import ch.makery.address.DAO.ReserverDAO;
 import javafx.application.Application;

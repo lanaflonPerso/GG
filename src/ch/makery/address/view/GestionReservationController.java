@@ -7,7 +7,7 @@ import java.util.ResourceBundle;
 
 import com.mysql.fabric.xmlrpc.base.Array;
 
-import application.Main;
+import ch.makery.address.Main;
 import ch.makery.address.DAO.ClientDAO;
 import ch.makery.address.DAO.ReserverDAO;
 import ch.makery.address.model.Client;

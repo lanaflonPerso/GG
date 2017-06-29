@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project GG4 with libraries in sub-folder">
+<project default="create_run_jar" name="Create Runnable Jar for Project GG4">
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <!--define folder properties-->
@@ -7,16 +7,14 @@
     <property name="dir.workspace" value="${dir.buildfile}/../.."/>
     <property name="dir.jarfile" value="C:/Users/Guillaume/Desktop"/>
     <target name="create_run_jar">
-        <jar destfile="${dir.jarfile}/GG4.jar">
+        <jar destfile="${dir.jarfile}/GG4.jar" filesetmanifest="mergewithoutmain">
             <manifest>
-                <attribute name="Main-Class" value="application.Main"/>
-                <attribute name="Class-Path" value=". GG4_lib/jsch-0.1.54.jar GG4_lib/mysql-connector-java-5.1.42.jar"/>
+                <attribute name="Main-Class" value="ch.makery.address.MainAppController"/>
+                <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="${dir.workspace}/GG4/bin"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.jarfile}/driver/jsch-0.1.54.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="${dir.jarfile}/driver/mysql-connector-java-5.1.42.jar"/>
         </jar>
-        <delete dir="${dir.jarfile}/GG4_lib"/>
-        <mkdir dir="${dir.jarfile}/GG4_lib"/>
-        <copy file="${dir.jarfile}/driver/jsch-0.1.54.jar" todir="${dir.jarfile}/GG4_lib"/>
-        <copy file="${dir.jarfile}/driver/mysql-connector-java-5.1.42.jar" todir="${dir.jarfile}/GG4_lib"/>
     </target>
 </project>

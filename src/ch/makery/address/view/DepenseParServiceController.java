@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import application.Main;
+import ch.makery.address.Main;
 import ch.makery.address.DAO.ReserverDAO;
 import ch.makery.address.DAO.ServiceDAO;
 import ch.makery.address.model.Service;

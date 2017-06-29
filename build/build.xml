@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<project name="Liste_Utilisateur" default="do-deploy" basedir="."  xmlns:fx="javafx:com.sun.javafx.tools.ant">
+	<project name="GG4" default="do-deploy" basedir="."  xmlns:fx="javafx:com.sun.javafx.tools.ant">
 	<target name="init-fx-tasks">
 		<path id="fxant">
 			<filelist>
@@ -19,10 +19,20 @@
 	
 		<mkdir dir="externalLibs" />
 	
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\Guillaume\Desktop\driver">
+				<filename name="mysql-connector-java-5.1.42.jar"/>
+			</fileset>
+		</copy>
+		<copy todir="externalLibs">
+			<fileset dir="C:\Users\Guillaume\Desktop\driver">
+				<filename name="jsch-0.1.54.jar"/>
+			</fileset>
+		</copy>
 	
 		<mkdir dir="project" />
 		<copy todir="project">
-			<fileset dir="C:\Users\Guillaume\Documents\JAVA_G4\Liste_Utilisateur">
+			<fileset dir="C:\Users\Guillaume\Documents\JAVA_G4\GG4">
 				<include name="src/**" />
 			</fileset>
 		</copy>
@@ -38,6 +48,8 @@
 		<!-- Copy project-libs references -->
 		<copy todir="build/libs">
 			<fileset dir="externalLibs">
+				<include name="jsch-0.1.54.jar"/>
+				<include name="mysql-connector-java-5.1.42.jar"/>
 			</fileset>
 		</copy>
 	
@@ -82,7 +94,7 @@
 	
 	
 		<fx:resources id="appRes">
-			<fx:fileset dir="dist" includes="Liste_Utilisateur.jar"/>
+			<fx:fileset dir="dist" includes="GG4.jar"/>
 			<fx:fileset dir="dist" includes="libs/*"/>
 		</fx:resources>
 	
@@ -95,7 +107,7 @@
 	
 	
 	
-		<fx:jar destfile="dist/Liste_Utilisateur.jar">
+		<fx:jar destfile="dist/GG4.jar">
 			<fx:application refid="fxApplication"/>
 			<fileset dir="build/classes">
 			</fileset>

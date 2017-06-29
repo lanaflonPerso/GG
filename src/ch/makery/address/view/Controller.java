@@ -3,8 +3,7 @@ package ch.makery.address.view;
 import java.io.IOException;
 import java.sql.SQLException;
 
-import application.Main;
-import application.ViewController;
+import ch.makery.address.Main;
 import ch.makery.address.DAO.UtilisateurDAO;
 import ch.makery.address.model.Utilisateur;
 import javafx.application.Application;
