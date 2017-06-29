@@ -41,6 +41,34 @@ public class Table_restaurantDAO {
         db.CloseSSHConnection();
         return null;
     }
+    public Table_restaurant getTableByNum(int num){
+        MySQLSSHConnector db = new MySQLSSHConnector();
+            try {
+                Connection connection = db.connection_db();
+		PreparedStatement pr = null;
+		pr = (PreparedStatement) connection.prepareStatement("Select * from Table_restaurant WHERE numero_table = " + num);
+		ResultSet rs = pr.executeQuery();
+
+		if (rs.next()){
+                    Table_restaurant res = new Table_restaurant();
+                    res.setId_table(rs.getInt("id_table"));
+                    res.setNb_place(rs.getInt("nb_places"));
+                    res.setNumero_table(rs.getInt("numero_table"));
+                    
+                    connection.close();
+		    db.CloseSSHConnection();
+                    return res;
+		}
+			
+            } catch (SQLException e) {
+		// TODO Auto-generated catch block
+                db.CloseSSHConnection();
+		e.printStackTrace();
+            }
+            
+        db.CloseSSHConnection();
+        return null;
+    }
     public boolean updateTable(Table_restaurant table){
         MySQLSSHConnector db = new MySQLSSHConnector();
             try {
