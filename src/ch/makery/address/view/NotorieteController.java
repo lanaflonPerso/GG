@@ -78,7 +78,7 @@ public class NotorieteController extends Application implements Initializable{
 
 	public void actionB1(){
 		Main vc = new Main();
-		vc.setScene("CentaleReservation.fxml");
+		vc.setScene("GestionReservation.fxml");
 	}
 
 	public void actionB2(){

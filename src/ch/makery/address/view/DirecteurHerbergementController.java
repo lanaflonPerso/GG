@@ -33,7 +33,7 @@ public class DirecteurHerbergementController extends Application implements Init
 
 	public void actionB1(){
 		Main vc = new Main();
-		vc.setScene("CentaleReservation.fxml");
+		vc.setScene("GestionReservation.fxml");
 	}
 
 	public void actionB2(){
