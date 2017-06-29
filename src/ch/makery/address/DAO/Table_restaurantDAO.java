@@ -134,16 +134,16 @@ public class Table_restaurantDAO {
 		ResultSet rs = pr.executeQuery();
                 ArrayList<Table_restaurant> tabTable = new ArrayList<>();
                 
-		if (rs.next()){
+		while (rs.next()){
                     Table_restaurant res = new Table_restaurant();
                     res.setId_table(rs.getInt("id_table"));
                     res.setNb_place(rs.getInt("nb_places"));
                     res.setNumero_table(rs.getInt("numero_table"));
                     
-                    connection.close();
-		    db.CloseSSHConnection();
                     tabTable.add(res);
 		}
+                connection.close();
+		db.CloseSSHConnection();
                 return tabTable;
 			
             } catch (SQLException e) {
