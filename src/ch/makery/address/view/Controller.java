@@ -61,6 +61,10 @@ public class Controller extends Application {
 				Main vc = new Main();
 				vc.setScene("AccueilReception.fxml");
 			}
+                        else if(user.getId_role()==4){
+                                Main vc = new Main();
+				vc.setScene("GestionTables.fxml");
+                        }
 			this.label.setText("Success");
 		}
 		else{
